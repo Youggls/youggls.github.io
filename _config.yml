@@ -7,12 +7,12 @@ description: "Every failure is leading towards success."
 keyword: "Youggls, Youggls Blog, Youggls的博客, 深度学习, 机器学习, Machine Learning, Deep Learning"
 url: "https://youggls.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
-github_repo: "https://github.com/Youggls/youggls.github.io.git" # you code repository
+github_repo: "https://github.com/Youggls/youggls.github.io" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "Goals determine what you going to be!"
-sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/my.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
