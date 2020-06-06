@@ -69,5 +69,30 @@ $$
 
 即，之前的序列表示$\boldsymbol c = \boldsymbol h^{(n_x)}$，我们改用$\boldsymbol c = \sum_{t=1}^{n_x} \alpha_t \boldsymbol h^{t}, \sum_{t=1}^{n_x} \alpha_t=1$来作为序列的表示。
 
+Attention机制的关键之处在于如何计算权重的值，下边我们来介绍一下答题思路和权重计算方法。
 
+#### 模型搭建
+
+如图所示，模型的基本搭建思路和上边并无太大区别。都是通过一个Encoder层将序列编码，然后将编码后的值输入个Decoder层解码，输出最终的序列值。其中，$\alpha$的计算方法为
+
+
+$$
+e_{ij}=a(s_{i-1},h_j)\\
+\alpha_{ij}=\frac{\exp(e_{ij})}{\sum_{k=1}^{n_x}\exp(e_{ik})}
+$$
+
+
+其中$a$为一个相关性函数，来衡量$s_{i-1}和h_j$的相似程度。如果某个时刻$t$，Encoder隐藏层值$h_t$与Decoder之前隐藏层值十分接近，那么该时刻的Encoder隐藏层值应该跟多地输出到序列表示$C$中，这样相当于我们更加**注意**这个时刻的序列输入，故而得名Attention机制。
+
+![t6TsmV.png](https://s1.ax1x.com/2020/06/06/t6TsmV.png)
+
+![t67SnP.png](https://s1.ax1x.com/2020/06/06/t67SnP.png)
+
+
+
+### 参考文献
+
+1. Learning Phrase Representations using RNN Encoder–Decoder for Statistical Machine Translation, arXiv:1406.1078, Bart van Merri¨enboer Caglar Gulcehre, etc..
+2. 《深度学习》, 中国工信出版集团, Ian Goodffello, Yoshua Bengio, Aaron Courville
+3. 知乎《【NLP】Attention原理和源码解析》,[李如](https://www.zhihu.com/people/rumor-lee), https://zhuanlan.zhihu.com/p/43493999
 
