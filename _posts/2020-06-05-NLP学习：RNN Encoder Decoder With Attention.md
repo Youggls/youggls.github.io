@@ -27,7 +27,11 @@ tags:
 
 我们可以使用RNN的最后一个隐藏层输出作为网络的代表向量$C$，这个值可以理解为**编码后**的上下文序列。
 
-之后，我们需要将该序列解码为目标输出序列。即，模型希望学习到条件概率$p(\boldsymbol y^{(1)}, \boldsymbol y^{(2)}, ..., \boldsymbol y^{(n_y)}|\boldsymbol x^{(1)}, \boldsymbol x^{(2)}, ..., \boldsymbol x^{(n_x)})$
+之后，我们需要将该序列解码为目标输出序列。即，模型希望学习到条件概率
+$$
+p(\boldsymbol y^{(1)}, \boldsymbol y^{(2)}, ..., \boldsymbol y^{(n_y)}|\boldsymbol x^{(1)}, \boldsymbol x^{(2)}, ..., \boldsymbol x^{(n_x)})
+$$
+
 
 #### 模型搭建
 
@@ -63,5 +67,7 @@ $$
 
 上文提到了，用Encoder最后时刻隐藏层的值不能有效代表整个序列。那么我们是否可以给Decoder输入所有时刻隐藏层值的加权平均来解决这个问题。
 
-即，之前的序列表示$\boldsymbol c = \boldsymbol h^{(n_x)}$，我们改用$\boldsymbol c = \sum_{t=1}^{n_x} \alpha_t \boldsymbol h^{t}$来作为序列的表示。
+即，之前的序列表示$\boldsymbol c = \boldsymbol h^{(n_x)}$，我们改用$\boldsymbol c = \sum_{t=1}^{n_x} \alpha_t \boldsymbol h^{t}, \sum_{t=1}^{n_x} \alpha_t=1$来作为序列的表示。
+
+
 
