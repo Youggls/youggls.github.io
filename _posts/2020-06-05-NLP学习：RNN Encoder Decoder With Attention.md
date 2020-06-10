@@ -45,14 +45,21 @@ $$
 ![ts3EzF.png](https://s1.ax1x.com/2020/06/05/ts3EzF.png)
 
 使用$h_t$代表Encoder的各个时刻的隐藏层状态，用$s_t$代表Decoder各个时刻的隐藏层状态。
+
+
 $$
 \boldsymbol h_t = f(\boldsymbol h_{t-1}, \boldsymbol x^{(t)})\\
 \boldsymbol s_t = f(\boldsymbol s_{t-1}, \boldsymbol y_{t-1}, \boldsymbol c)
 $$
+
+
 计算$\boldsymbol y^{(t)}$的方法为
+
+
 $$
 P(\boldsymbol y^{(t)}| \boldsymbol y^{(t - 1)}, \boldsymbol y^{(t - 2)}, ..., \boldsymbol y^{(1)}, \boldsymbol c) = g(\boldsymbol h^{(t)}, \boldsymbol y^{(t - 1)}, \boldsymbol c)
 $$
+
 
 
 其中，$\boldsymbol c$通常为Encoder最后一个隐藏层的值，即$\boldsymbol h_{n_x}$。$f$和$g$为两个函数，$f$可以为各种形式的RNN，$g$应该为一个归一化的概率密度函数。
